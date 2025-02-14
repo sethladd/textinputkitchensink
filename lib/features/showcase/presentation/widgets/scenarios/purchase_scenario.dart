@@ -331,34 +331,67 @@ class _PurchaseScenarioState extends State<PurchaseScenario> {
                 ),
                 const SizedBox(width: 16),
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: CupertinoColors.systemGrey4),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Row(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 8),
-                          child: Icon(
-                            CupertinoIcons.map,
-                            color: CupertinoColors.systemGrey,
+                  child: GestureDetector(
+                    onTap: () {
+                      showCupertinoModalPopup<void>(
+                        context: context,
+                        builder:
+                            (BuildContext context) => Container(
+                              height: 216,
+                              padding: const EdgeInsets.only(top: 6.0),
+                              margin: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).viewInsets.bottom,
+                              ),
+                              color: CupertinoColors.systemBackground
+                                  .resolveFrom(context),
+                              child: SafeArea(
+                                top: false,
+                                child: CupertinoPicker(
+                                  itemExtent: 32,
+                                  scrollController: FixedExtentScrollController(
+                                    initialItem:
+                                        _selectedState != null
+                                            ? _states.indexOf(_selectedState!)
+                                            : 0,
+                                  ),
+                                  onSelectedItemChanged: (index) {
+                                    setState(() {
+                                      _selectedState = _states[index];
+                                      _stateController.text = _states[index];
+                                    });
+                                  },
+                                  children:
+                                      _states
+                                          .map((state) => Text(state))
+                                          .toList(),
+                                ),
+                              ),
+                            ),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: CupertinoColors.systemGrey4),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(left: 8),
+                            child: Icon(
+                              CupertinoIcons.map,
+                              color: CupertinoColors.systemGrey,
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          child: CupertinoPicker(
-                            itemExtent: 32,
-                            onSelectedItemChanged: (index) {
-                              setState(() {
-                                _selectedState = _states[index];
-                                _stateController.text = _states[index];
-                              });
-                            },
-                            children:
-                                _states.map((state) => Text(state)).toList(),
+                          const SizedBox(width: 8),
+                          Text(
+                            _selectedState ?? '',
+                            style: const TextStyle(fontSize: 16),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

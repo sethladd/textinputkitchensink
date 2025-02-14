@@ -1,3 +1,4 @@
 flutter create text_input_showcase
 cd text_input_showcase
 mkdir -p lib/core/theme lib/core/enums lib/features/showcase/presentation/pages lib/features/showcase/presentation/widgets/scenarios 
+flutter pub get 

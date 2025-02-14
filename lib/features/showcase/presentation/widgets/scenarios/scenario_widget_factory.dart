@@ -8,6 +8,7 @@ import '../../../../../core/enums/widget_style.dart';
 import 'login_scenario.dart';
 import 'purchase_scenario.dart';
 import 'profile_scenario.dart';
+import 'settings_scenario.dart';
 
 class ScenarioWidgetFactory {
   static Widget createWidget(ShowcaseScenario scenario, WidgetStyle style) {
@@ -18,6 +19,8 @@ class ScenarioWidgetFactory {
         return PurchaseScenario(style: style);
       case ShowcaseScenario.profile:
         return ProfileScenario(style: style);
+      case ShowcaseScenario.settings:
+        return SettingsScenario(style: style);
       // Add other scenarios as we implement them
       default:
         return Center(
