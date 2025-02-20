@@ -11,7 +11,6 @@ import 'purchase_scenario.dart';
 import 'profile_scenario.dart';
 import 'settings_scenario.dart';
 import 'social_post_scenario.dart';
-import 'chat_scenario.dart';
 
 class ScenarioWidgetFactory {
   static Widget createWidget(ShowcaseScenario scenario, WidgetStyle style) {
