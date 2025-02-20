@@ -5,10 +5,12 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/enums/showcase_scenario.dart';
 import '../../../../../core/enums/widget_style.dart';
+import 'chat_scenario.dart';
 import 'login_scenario.dart';
 import 'purchase_scenario.dart';
 import 'profile_scenario.dart';
 import 'settings_scenario.dart';
+import 'social_post_scenario.dart';
 
 class ScenarioWidgetFactory {
   static Widget createWidget(ShowcaseScenario scenario, WidgetStyle style) {
@@ -21,6 +23,10 @@ class ScenarioWidgetFactory {
         return ProfileScenario(style: style);
       case ShowcaseScenario.settings:
         return SettingsScenario(style: style);
+      case ShowcaseScenario.chat:
+        return ChatScenario(style: style);
+      case ShowcaseScenario.socialPost:
+        return SocialPostScenario(style: style);
       // Add other scenarios as we implement them
       default:
         return Center(
