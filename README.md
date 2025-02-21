@@ -1,6 +1,6 @@
 # textinputplayground
 
-A new Flutter project.
+Demonstrating common use cases of Flutter's text input.
 
 ## Getting Started
 
