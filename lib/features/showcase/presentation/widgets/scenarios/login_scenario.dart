@@ -76,10 +76,6 @@ class _LoginScenarioState extends State<LoginScenario> {
             controller: _emailController,
             placeholder: 'Email',
             keyboardType: TextInputType.emailAddress,
-            prefix: const Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Icon(CupertinoIcons.mail),
-            ),
             autocorrect: false,
           ),
           const SizedBox(height: 16),
@@ -87,10 +83,6 @@ class _LoginScenarioState extends State<LoginScenario> {
             controller: _passwordController,
             placeholder: 'Password',
             obscureText: _obscurePassword,
-            prefix: const Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Icon(CupertinoIcons.lock),
-            ),
             suffix: CupertinoButton(
               padding: EdgeInsets.zero,
               onPressed: () {
